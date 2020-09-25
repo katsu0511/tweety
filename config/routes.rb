@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resource :timeline, only: [:show]
+  resource :profile, only: [:show, :edit, :update]
 end
