@@ -25,4 +25,6 @@ class User < ApplicationRecord
 
   validates :account_name, presence: true
   validates :account_name, uniqueness: true
+
+  has_one :profile, dependent: :destroy
 end
