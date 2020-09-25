@@ -1,0 +1,50 @@
+@import 'variables';
+
+.login, .signup {
+	padding-top: 60px;
+	margin-bottom: 20px;
+}
+
+form {
+	input {
+		border: 1px solid $base;
+		border-radius: 3px;
+		outline: none;
+	}
+
+	.field {
+		margin-bottom: 20px;
+
+		&.info {
+			input {
+				width: 200px;
+				height: 30px;
+				padding: 0 5px;
+			}
+		}
+	}
+
+	.actions {
+		input {
+			background-color: $base;
+			color: $white;
+			font-size: 16px;
+			width: 100px;
+			height: 30px;
+			margin-bottom: 20px;
+			transition: all 0.3s;
+			cursor: pointer;
+
+			&:hover {
+				background-color: $white;
+				color: $base;
+			}
+		}
+
+		&.password_action {
+			input {
+				width: 280px;
+			}
+		}
+	}
+}
