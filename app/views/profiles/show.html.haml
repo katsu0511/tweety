@@ -5,9 +5,10 @@
     = image_tag current_user.avatar_image, class: 'profile_icon'
   %h2.user_name= current_user.profile&.name
   %p.user_introduction= current_user.profile&.introduction
-  %p.user_birthday
-    %span Birthday
-    = current_user.profile&.birthday
+  - if current_user.profile&.birthday
+    %p.user_birthday
+      %span Birthday
+      = current_user.profile&.birthday
   .profile_infos
     .profile_info.post
       %span 5
