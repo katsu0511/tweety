@@ -5,9 +5,9 @@
     .user_ui
       = image_tag current_user.icon_image
       %p= current_user.account_name
-    .field
-      = f.text_field :content, class: 'tweet_content', placeholder: 'What\'s on your mind?'
-    .form_header
+    .field.tweet
+      = f.text_area :content, class: 'tweet_content', placeholder: 'What\'s on your mind?'
+    .tweet_btn
       = link_to 'Cancel', root_path, class: 'tweet_cancel'
       .actions
-        = f.submit :Post, class: 'post_btn'
+        = f.submit :Tweet, class: 'post_btn'
