@@ -1,0 +1,27 @@
+@import 'variables';
+
+.profile_form {
+	padding-top: 60px;
+	max-width: 500px;
+
+	form {
+		.field {
+			label {
+				color: $base;
+			}
+
+			input, textarea {
+				width: 500px;
+				border: 1px solid $base;
+				border-radius: 3px;
+				padding: 5px 10px;
+				margin-top: 5px;
+			}
+
+			textarea {
+				height: 100px;
+				outline: none;
+			}
+		}
+	}
+}
