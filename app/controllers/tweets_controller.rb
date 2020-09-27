@@ -34,6 +34,9 @@ class TweetsController < ApplicationController
   end
 
   def destroy
+    tweet = current_user.tweets.find(params[:id])
+    tweet.destroy!
+    redirect_to timeline_path, notice: '削除しました'
   end
 
   private
