@@ -1,0 +1,21 @@
+.inner.profile
+  %h1.account_name= current_user.account_name
+  = link_to '編集', edit_profile_path, class: 'profile_edit'
+  .profile_image
+    = image_tag current_user.icon_image, class: 'profile_icon'
+  %h2.user_name= current_user.profile&.name
+  %p.user_introduction= current_user.profile&.introduction
+  - if current_user.profile&.birthday
+    %p.user_birthday
+      %span Birthday
+      = current_user.profile&.birthday
+  .profile_infos
+    .profile_info.post
+      %span 5
+      %h2 ツイート
+    = link_to root_path, class: 'profile_info follower' do
+      %span 15
+      %h2 フォロワー
+    = link_to root_path, class: 'profile_info following' do
+      %span 15
+      %h2 フォロー
