@@ -1,0 +1,13 @@
+.inner
+  - @tweet.errors.full_messages.each do |message|
+    %p.error_message= message
+  = form_with model: @tweet, url: tweets_path, method: :post, local: true do |f|
+    .user_ui
+      = image_tag current_user.icon_image
+      %p= current_user.account_name
+    .field
+      = f.text_field :content, class: 'tweet_content', placeholder: 'What\'s on your mind?'
+    .form_header
+      = link_to 'Cancel', root_path, class: 'tweet_cancel'
+      .actions
+        = f.submit :Post, class: 'post_btn'
