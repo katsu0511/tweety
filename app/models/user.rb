@@ -32,9 +32,9 @@ class User < ApplicationRecord
     profile || build_profile
   end
 
-  def avatar_image
-    if profile&.avatar&.attached?
-      profile.avatar
+  def icon_image
+    if profile&.icon&.attached?
+      profile.icon
     else
       'default.png'
     end
