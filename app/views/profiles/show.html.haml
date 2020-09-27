@@ -19,6 +19,6 @@
     = link_to root_path, class: 'profile_info following' do
       %span 15
       %h2 フォロー
-  .profile_tweets
+  .tweets_index
     = render 'commons/tweets', user: @user
 = link_to '+',new_tweet_path, class: 'new_tweet'
