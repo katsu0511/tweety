@@ -1,11 +1,14 @@
 .tweets_index {
     max-width: 500px;
-    border-top: 1px solid $base;
     margin: 30px auto;
 
     .tweet {
         border-bottom: 1px solid $base;
         padding: 10px;
+
+        &:first-child {
+            border-top: 1px solid $base;
+        }
 
         .tweet_top {
             display: flex;
