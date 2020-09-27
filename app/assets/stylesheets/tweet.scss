@@ -1,0 +1,38 @@
+.tweet_show {
+	padding-top: 60px;
+
+	.tweet {
+		border: none;
+
+		&:first-child {
+			border-top: none;
+		}
+
+		.tweet_top {
+
+			&_icon {
+				width: 50px;
+			}
+
+			&_name {
+				font-size: 18px;
+			}
+		}
+
+		.tweet_created {
+			font-size: 14px;
+		}
+
+		.tweet_content {
+			p {
+				font-size: 18px;
+			}
+
+			.tweet_images {
+				.tweet_image {
+					padding: 10px;
+				}
+			}
+		}
+	}
+}

@@ -1,4 +1,4 @@
-.tweets_index {
+.tweets_index, .tweet_show {
     max-width: 500px;
     margin: 30px auto;
 
@@ -38,6 +38,8 @@
             }
 
             .tweet_images {
+                margin-top: 10px;
+
                 .tweet_image {
                     padding: 10px 0 5px;
                 }

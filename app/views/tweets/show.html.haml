@@ -1,1 +1,12 @@
-show
+.inner.tweet_show
+  .tweet#tweet-show{data: {tweet_id: @tweet.id}}
+    = link_to root_path, class: 'tweet_top' do
+      = image_tag @tweet.user.icon_image, class: 'tweet_top_icon'
+      %p.tweet_top_name= @tweet.user.account_name
+    .tweet_content
+      - if @tweet.images.attached?
+        .tweet_images
+          - @tweet.images.each do |image|
+            = image_tag image, class: 'tweet_image'
+      %p= @tweet.content
+    %p.tweet_created= @tweet.created_at
