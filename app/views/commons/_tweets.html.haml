@@ -3,7 +3,7 @@
     = link_to root_path, class: 'tweet_top' do
       = image_tag tweet.user.icon_image, class: 'tweet_top_icon'
       %p.tweet_top_name= tweet.user.account_name
-    = link_to root_path, class: 'tweet_content' do
+    = link_to tweet_path(tweet), class: 'tweet_content' do
       - if tweet.images.attached?
         .tweet_images
           - tweet.images.each do |image|

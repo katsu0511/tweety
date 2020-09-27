@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
   before_action :forbid_logout_user
 
   def show
+    @tweet = Tweet.find(params[:id])
   end
 
   def new
