@@ -12,9 +12,9 @@ class TweetsController < ApplicationController
   def create
     @tweet = current_user.tweets.build(tweet_params)
     if @tweet.save
-      redirect_to timeline_path, notice: 'You tweeted'
+      redirect_to timeline_path, notice: 'ツイートしました'
     else
-      flash.now[:error] = 'Failed to tweet..'
+      flash.now[:error] = 'ツイートに失敗しました..'
       render :new
     end
   end
@@ -24,6 +24,13 @@ class TweetsController < ApplicationController
   end
 
   def update
+    @tweet = current_user.tweets.find(params[:id])
+    if @tweet.update(tweet_params)
+      redirect_to tweet_path(@tweet), notice: '更新できました'
+    else
+      flash.now[:error] = '更新できませんでした..'
+      render :edit
+    end
   end
 
   def destroy
