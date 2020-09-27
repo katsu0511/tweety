@@ -1,4 +1,6 @@
-.inner {
+.tweet_new {
+	max-width: 500px;
+
 	form {
 		padding: 60px 0;
 
@@ -15,7 +17,7 @@
 			}
 		}
 
-		.tweet {
+		.tweet_field {
 			.tweet_content {
 				font-size: 16px;
 				width: 100%;
