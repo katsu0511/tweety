@@ -7,6 +7,8 @@
       %p= current_user.account_name
     .field.tweet_field
       = f.text_area :content, class: 'tweet_content', placeholder: '呟きを書いてください'
+    .field.tweet_field
+      = f.file_field :images, multiple: true
     .tweet_btn
       = link_to 'キャンセル', root_path, class: 'tweet_cancel'
       .actions

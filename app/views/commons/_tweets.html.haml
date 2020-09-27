@@ -4,5 +4,9 @@
       = image_tag tweet.user.icon_image, class: 'tweet_top_icon'
       %p.tweet_top_name= tweet.user.account_name
     = link_to root_path, class: 'tweet_content' do
+      - if tweet.images.attached?
+        .tweet_images
+          - tweet.images.each do |image|
+            = image_tag image, class: 'tweet_image'
       %p= tweet.content
     %p.tweet_created= tweet.created_at
