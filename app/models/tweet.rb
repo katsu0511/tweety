@@ -13,5 +13,9 @@
 #  index_tweets_on_user_id  (user_id)
 #
 class Tweet < ApplicationRecord
+  validates :content, presence: true
+  validates :content, length: { minimum: 2, maximum: 140 }
+  validates :content, format: { with: /\A(?!\@)/ }
+
   belongs_to :user
 end
