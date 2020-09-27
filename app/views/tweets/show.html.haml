@@ -3,6 +3,12 @@
     = link_to root_path, class: 'tweet_top' do
       = image_tag @tweet.user.icon_image, class: 'tweet_top_icon'
       %p.tweet_top_name= @tweet.user.account_name
+    .tweet_action
+      .dropdown
+        = image_tag 'actions.svg', class: 'drop_btn'
+        .dropdown_content
+          = link_to '編集', edit_tweet_path(@tweet), class: 'edit_tweet'
+          = link_to '削除', tweet_path(@tweet), method: :delete, class: 'delete_tweet'
     .tweet_content
       - if @tweet.images.attached?
         .tweet_images

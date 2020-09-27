@@ -2,6 +2,7 @@
 	padding-top: 60px;
 
 	.tweet {
+		position: relative;
 		border: none;
 
 		&:first-child {
@@ -16,6 +17,48 @@
 
 			&_name {
 				font-size: 18px;
+			}
+		}
+
+		.tweet_action {
+			position: absolute;
+			top: 35px;
+			right: 10px;
+
+			.dropdown {
+				text-align: right;
+
+				.drop_btn {
+					width: 22px;
+					cursor: pointer;
+				}
+
+				.dropdown_content {
+					display: none;
+					position: relative;
+					top: -10px;
+					border: 1px solid $base;
+					border-radius: 5px;
+
+					a {
+						display: block;
+						background-color: $white;
+						color: $base;
+						font-size: 16px;
+						border-radius: 3px;
+						padding: 2px 10px 3px;
+						transition: all 0.3s;
+
+						&:hover {
+							background-color: $base;
+							color: $white;
+						}
+					}
+				}
+
+				&:hover .dropdown_content {
+					display: block;
+				}
 			}
 		}
 
