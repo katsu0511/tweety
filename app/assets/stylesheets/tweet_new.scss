@@ -22,20 +22,25 @@
 				height: 100px;
 				border: 1px solid $base;
 				border-radius: 3px;
+				padding: 5px;
 				outline: none;
 			}
 		}
 
 		.tweet_btn {
-			display: flex;
-			justify-content: space-between;
-
 			.tweet_cancel {
+				float: left;
+				color: $base;
+				transition: all 0.3s;
 
+				&:hover {
+					color: $black;
+				}
 			}
-			.action {
-				.post_btn {
 
+			.actions {
+				.tweet_btn {
+					float: right;
 				}
 			}
 		}

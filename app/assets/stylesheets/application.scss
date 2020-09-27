@@ -61,57 +61,21 @@ p,
 span,
 small,
 strong,
-sub,
-sup,
-mark,
-del,
-ins,
-strike,
-abbr,
-dfn,
 blockquote,
 q,
-cite,
-code,
-pre,
-ol,
 ul,
 li,
-dl,
-dt,
-dd,
 div,
 section,
 article,
 main,
-aside,
-nav,
 header,
-hgroup,
 footer,
 img,
 figure,
-figcaption,
-address,
 time,
-audio,
-video,
-canvas,
-iframe,
-details,
-summary,
-fieldset,
 form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td {
+label {
 	border: 0;
 	font: inherit;
 	font-size: 100%;
@@ -133,38 +97,9 @@ img {
 	vertical-align: top;
 }
 
-video {
-	height: auto;
-	max-width: 100%;
-}
-
-code,
-kbd,
-pre,
-samp {
-	font-family: monospace, sans-serif;
-	font-size: inherit;
-}
-
 ul,
 ol {
 	list-style: none;
-}
-
-table {
-	border: 1px solid #eee;
-	border-collapse: collapse;
-	border-spacing: 0;
-	table-layout: fixed;
-	width: 100%;
-}
-
-th,
-td {
-	border: 1px solid #eee;
-	padding: 4px 6px;
-	text-align: left;
-	vertical-align: top;
 }
 
 blockquote,
@@ -178,10 +113,6 @@ q::after,
 q::before {
 	content: "";
 	content: none;
-}
-
-address {
-	font-style: normal;
 }
 
 form {
@@ -247,5 +178,28 @@ main {
 		display: inline-block;
 		width: 200px;
 		padding-top: 60px;
+	}
+}
+
+.new_tweet {
+	display: block;
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	background-color: $base;
+	color: $white;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 34px;
+	width: 40px;
+	height: 40px;
+	border: 1px solid $base;
+	border-radius: 50%;
+	transition: all 0.3s;
+
+	&:hover {
+		background-color: $white;
+		color: $base;
 	}
 }
