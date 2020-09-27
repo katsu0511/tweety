@@ -1,5 +1,5 @@
 %p
-  Hello #{@resource.email}!
-%p Your account has been locked due to an excessive number of unsuccessful sign in attempts.
-%p Click the link below to unlock your account:
-%p= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token)
+  こんにちは #{@resource.email}!
+%p ログインに多数回失敗したため、あなたのアカウントはロックされました。
+%p アカウントのロック解除は下のリンクにアクセスしてください:
+%p= link_to 'ロックを解除', unlock_url(@resource, unlock_token: @token)

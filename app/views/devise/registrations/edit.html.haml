@@ -1,37 +1,37 @@
 .inner
   %h2
-    Edit #{resource_name.to_s.humanize}
+    編集 #{resource_name.to_s.humanize}
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-    = render "devise/shared/error_messages", resource: resource
+    = render 'devise/shared/error_messages', resource: resource
     .field.info
-      = f.label :email
+      = f.label :email, 'メールアドレス'
       %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email"
+      = f.email_field :email, autofocus: true, autocomplete: 'email'
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       %div
         Currently waiting confirmation for: #{resource.unconfirmed_email}
     .field.info
-      = f.label :password
+      = f.label :password, 'パスワード'
       %i (leave blank if you don't want to change it)
       %br/
-      = f.password_field :password, autocomplete: "new-password"
+      = f.password_field :password, autocomplete: 'new-password'
       - if @minimum_password_length
         %br/
         %em
           = @minimum_password_length
           characters minimum
     .field.info
-      = f.label :password_confirmation
+      = f.label :password_confirmation, 'パスワード確認'
       %br/
-      = f.password_field :password_confirmation, autocomplete: "new-password"
+      = f.password_field :password_confirmation, autocomplete: 'new-password'
     .field.info
       = f.label :current_password
       %i (we need your current password to confirm your changes)
       %br/
-      = f.password_field :current_password, autocomplete: "current-password"
+      = f.password_field :current_password, autocomplete: 'current-password'
     .actions
-      = f.submit "Update"
-  %h3 Cancel my account
+      = f.submit '更新'
+  %h3 退会
   %p
-    Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-  = link_to "Back", :back
+    Unhappy? #{button_to '退会', registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete}
+  = link_to '戻る', :back

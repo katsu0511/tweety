@@ -1,11 +1,11 @@
 .inner
-  %h2.login Resend unlock instructions
+  %h2.login ロック解除メールを再送信
   = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
-    = render "devise/shared/error_messages", resource: resource
+    = render 'devise/shared/error_messages', resource: resource
     .field.info
-      = f.label :email
+      = f.label :email, 'メールアドレス'
       %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email"
+      = f.email_field :email, autofocus: true, autocomplete: 'email'
     .actions
-      = f.submit "Resend unlock instructions"
-  = render "devise/shared/links"
+      = f.submit 'ロック解除メールを再送信'
+  = render 'devise/shared/links'

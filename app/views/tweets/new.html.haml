@@ -6,8 +6,8 @@
       = image_tag current_user.icon_image
       %p= current_user.account_name
     .field.tweet_field
-      = f.text_area :content, class: 'tweet_content', placeholder: 'What\'s on your mind?'
+      = f.text_area :content, class: 'tweet_content', placeholder: '呟きを書いてください'
     .tweet_btn
-      = link_to 'Cancel', root_path, class: 'tweet_cancel'
+      = link_to 'キャンセル', root_path, class: 'tweet_cancel'
       .actions
-        = f.submit :Tweet, class: 'tweet_btn'
+        = f.submit 'ツイート', class: 'tweet_btn'
