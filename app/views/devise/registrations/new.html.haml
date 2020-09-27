@@ -1,26 +1,26 @@
 .inner
-  %h2.signup サインアップ
+  %h2.signup 登録
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = render "devise/shared/error_messages", resource: resource
+    = render 'devise/shared/error_messages', resource: resource
     .field.info
-      = f.label :account_name
+      = f.label :account_name, 'アカウント名'
       %br/
-      = f.text_field :account_name, autofocus: true, autocomplete: "account_name"
+      = f.text_field :account_name, autofocus: true, autocomplete: 'account_name'
     .field.info
-      = f.label :email
+      = f.label :email, 'メールアドレス'
       %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email"
+      = f.email_field :email, autofocus: true, autocomplete: 'email'
     .field.info
-      = f.label :password
+      = f.label :password, 'パスワード'
       - if @minimum_password_length
         %em
-          (#{@minimum_password_length} characters minimum)
+          (#{@minimum_password_length} 文字以上)
       %br/
-      = f.password_field :password, autocomplete: "new-password"
+      = f.password_field :password, autocomplete: 'new-password'
     .field.info
-      = f.label :password_confirmation
+      = f.label :password_confirmation, 'パスワード確認'
       %br/
-      = f.password_field :password_confirmation, autocomplete: "new-password"
+      = f.password_field :password_confirmation, autocomplete: 'new-password'
     .actions
-      = f.submit "Sign up"
-  = render "devise/shared/links"
+      = f.submit '登録'
+  = render 'devise/shared/links'

@@ -7,11 +7,11 @@
   %p.user_introduction= current_user.profile&.introduction
   - if current_user.profile&.birthday
     %p.user_birthday
-      %span Birthday
+      %span 誕生日
       = current_user.profile&.birthday
   .profile_infos
     .profile_info.post
-      %span 5
+      %span= current_user.tweets.count
       %h2 ツイート
     = link_to root_path, class: 'profile_info follower' do
       %span 15
@@ -19,3 +19,6 @@
     = link_to root_path, class: 'profile_info following' do
       %span 15
       %h2 フォロー
+  .tweets_index
+    = render 'commons/tweets', user: @user
+= link_to '+',new_tweet_path, class: 'new_tweet'

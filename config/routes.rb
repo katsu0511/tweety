@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   resource :timeline, only: [:show]
   resource :profile, only: [:show, :edit, :update]
+
+  resources :tweets, only: [:show, :new, :create, :edit, :update, :destroy]
 end

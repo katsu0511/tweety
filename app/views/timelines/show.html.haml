@@ -1,1 +1,4 @@
-timeline
+.inner
+  .tweets_index
+    = render 'commons/tweets', user: @user
+= link_to '+',new_tweet_path, class: 'new_tweet'

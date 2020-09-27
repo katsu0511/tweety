@@ -1,0 +1,15 @@
+.inner.tweet_new
+  - @tweet.errors.full_messages.each do |message|
+    %p.error_message= message
+  = form_with model: @tweet, url: tweet_path, method: :put, local: true do |f|
+    .user_ui
+      = image_tag current_user.icon_image
+      %p= current_user.account_name
+    .field.tweet_field
+      = f.text_area :content, class: 'tweet_content'
+    .field.tweet_field
+      = f.file_field :images, multiple: true
+    .tweet_btn
+      = link_to 'キャンセル', root_path, class: 'tweet_cancel'
+      .actions
+        = f.submit '更新', class: 'tweet_btn'
