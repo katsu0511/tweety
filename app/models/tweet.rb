@@ -16,6 +16,7 @@ class Tweet < ApplicationRecord
   validates :content, presence: true
   validates :content, length: { minimum: 2, maximum: 140 }
   validates :content, format: { with: /\A(?!\@)/ }
+  validates :images, length: {maximum: 4}
 
   has_many_attached :images
   belongs_to :user
