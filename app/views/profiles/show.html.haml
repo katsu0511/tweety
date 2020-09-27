@@ -11,7 +11,7 @@
       = current_user.profile&.birthday
   .profile_infos
     .profile_info.post
-      %span 5
+      %span= current_user.tweets.count
       %h2 ツイート
     = link_to root_path, class: 'profile_info follower' do
       %span 15
