@@ -1,6 +1,6 @@
 .inner.tweet_show
   .tweet#tweet-show{data: {tweet_id: @tweet.id}}
-    = link_to root_path, class: 'tweet_top' do
+    = link_to account_path(@tweet.user), class: 'tweet_top' do
       = image_tag @tweet.user.icon_image, class: 'tweet_top_icon'
       %p.tweet_top_name= @tweet.user.account_name
     - if @tweet.user_id == current_user.id
