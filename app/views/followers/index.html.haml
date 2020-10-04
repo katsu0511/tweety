@@ -1,8 +1,7 @@
 .inner
   .followers_index
     - @user.followers.each do |follower|
-      = image_tag follower.icon_image
-      %p= follower.account_name
+      = link_to account_path(follower), class: 'follower_link' do
+        = image_tag follower.icon_image
+        %p= follower.account_name
 = link_to '+',new_tweet_path, class: 'new_tweet'
-
-
