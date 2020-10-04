@@ -4,7 +4,7 @@
     = link_to '編集', edit_profile_path, class: 'profile_edit'
   - else
     - if current_user&.has_followed?(user)
-      %p.profile_edit.follow_btn フォロー済み
+      = link_to 'アンフォロー', account_unfollows_path(user), data: {method: 'post'}, class: 'profile_edit follow_btn'
     - else
       = link_to 'フォロー', account_follows_path(user), data: {method: 'post'}, class: 'profile_edit follow_btn'
   .profile_image
