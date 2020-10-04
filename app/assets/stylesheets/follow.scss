@@ -1,0 +1,33 @@
+@import 'variables';
+
+.inner {
+	.followings_index, .followers_index {
+		max-width: 500px;
+		padding-top: 60px;
+		margin: 0 auto;
+
+		.following_link, .follower_link {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-top: 1px solid $base;
+			padding: 10px;
+
+			&:first-child {
+				border-top: none;
+			}
+
+			img {
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				margin-right: 20px;
+			}
+
+			p {
+				font-size: 16px;
+				color: $base;
+			}
+		}
+	}
+}

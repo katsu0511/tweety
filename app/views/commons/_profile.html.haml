@@ -3,7 +3,10 @@
   - if user == current_user
     = link_to '編集', edit_profile_path, class: 'profile_edit'
   - else
-    = link_to 'フォロー', root_path, class: 'profile_edit follow_btn'
+    - if current_user&.has_followed?(user)
+      = link_to 'Unfollow', account_follow_path(user), data: {method: 'delete'}, class: 'profile_edit follow_btn'
+    - else
+      = link_to 'Follow', account_follow_path(user), data: {method: 'post'}, class: 'profile_edit follow_btn'
   .profile_image
     = image_tag user.icon_image, class: 'profile_icon'
   %h2.user_name= user.profile&.name
@@ -16,12 +19,24 @@
     .profile_info.post
       %span= user.tweets.count
       %h2 ツイート
-    = link_to root_path, class: 'profile_info follower' do
-      %span 15
+    = link_to account_followers_path(user), class: 'profile_info follower' do
+      %span= user.followers.count
       %h2 フォロワー
-    = link_to root_path, class: 'profile_info following' do
-      %span 15
+    = link_to account_followings_path(user), class: 'profile_info following' do
+      %span= user.followings.count
       %h2 フォロー
   .tweets_index
-    = render 'commons/tweets', user: @user
+    - user.tweets.each do |tweet|
+      .tweet#tweet-show{data: {tweet_id: tweet.id}}
+        = link_to account_path(user), class: 'tweet_top' do
+          = image_tag tweet.user.icon_image, class: 'tweet_top_icon'
+          %p.tweet_top_name= tweet.user.account_name
+        = link_to tweet_path(tweet), class: 'tweet_content' do
+          - if tweet.images.attached?
+            .tweet_images
+              - tweet.images.each do |image|
+                = image_tag image, class: 'tweet_image'
+          %p= tweet.content
+        %p.tweet_created= tweet.created_at
+
 = link_to '+',new_tweet_path, class: 'new_tweet'
