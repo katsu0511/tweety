@@ -3,7 +3,10 @@
   - if user == current_user
     = link_to '編集', edit_profile_path, class: 'profile_edit'
   - else
-    = link_to 'フォロー', root_path, class: 'profile_edit follow_btn'
+    - if current_user&.has_followed?(user)
+      %p.profile_edit.follow_btn フォロー済み
+    - else
+      = link_to 'フォロー', account_follows_path(user), data: {method: 'post'}, class: 'profile_edit follow_btn'
   .profile_image
     = image_tag user.icon_image, class: 'profile_icon'
   %h2.user_name= user.profile&.name
