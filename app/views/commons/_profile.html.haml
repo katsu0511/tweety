@@ -19,10 +19,10 @@
     .profile_info.post
       %span= user.tweets.count
       %h2 ツイート
-    = link_to root_path, class: 'profile_info follower' do
+    = link_to account_followers_path(user), class: 'profile_info follower' do
       %span= user.followers.count
       %h2 フォロワー
-    = link_to root_path, class: 'profile_info following' do
+    = link_to account_followings_path(user), class: 'profile_info following' do
       %span= user.followings.count
       %h2 フォロー
   .tweets_index

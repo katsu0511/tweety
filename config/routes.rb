@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :accounts, only: [:show] do
     resource :follow, only: [:create, :destroy]
+    resources :followings, only: [:index]
+    resources :followers, only: [:index]
   end
 
   resource :timeline, only: [:show]
