@@ -4,9 +4,9 @@
     = link_to '編集', edit_profile_path, class: 'profile_edit'
   - else
     - if current_user&.has_followed?(user)
-      = link_to 'アンフォロー', account_unfollows_path(user), data: {method: 'post'}, class: 'profile_edit follow_btn'
+      = link_to 'Unfollow', account_unfollows_path(user), data: {method: 'post'}, class: 'profile_edit follow_btn'
     - else
-      = link_to 'フォロー', account_follows_path(user), data: {method: 'post'}, class: 'profile_edit follow_btn'
+      = link_to 'Follow', account_follows_path(user), data: {method: 'post'}, class: 'profile_edit follow_btn'
   .profile_image
     = image_tag user.icon_image, class: 'profile_icon'
   %h2.user_name= user.profile&.name
