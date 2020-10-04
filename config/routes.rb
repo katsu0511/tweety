@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :accounts, only: [:show] do
-    resources :follows, only: [:create]
-    resources :unfollows, only: [:create]
+    resource :follow, only: [:create, :destroy]
   end
 
   resource :timeline, only: [:show]
