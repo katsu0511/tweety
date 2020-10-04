@@ -26,11 +26,18 @@ class User < ApplicationRecord
   validates :account_name, presence: true
   validates :account_name, uniqueness: true
 
+  has_many :following_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
+  has_many :followings, through: :following_relationships, source: :following
+
   has_one :profile, dependent: :destroy
   has_many :tweets, dependent: :destroy
 
   def prepare_profile
     profile || build_profile
+  end
+
+  def follow!(user)
+    following_relationships.create!(following_id: user.id)
   end
 
   def icon_image
