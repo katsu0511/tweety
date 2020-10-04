@@ -26,5 +26,17 @@
       %span= user.followings.count
       %h2 フォロー
   .tweets_index
-    = render 'commons/tweets', user: @user
+    - user.tweets.each do |tweet|
+      .tweet#tweet-show{data: {tweet_id: tweet.id}}
+        = link_to account_path(user), class: 'tweet_top' do
+          = image_tag tweet.user.icon_image, class: 'tweet_top_icon'
+          %p.tweet_top_name= tweet.user.account_name
+        = link_to tweet_path(tweet), class: 'tweet_content' do
+          - if tweet.images.attached?
+            .tweet_images
+              - tweet.images.each do |image|
+                = image_tag image, class: 'tweet_image'
+          %p= tweet.content
+        %p.tweet_created= tweet.created_at
+
 = link_to '+',new_tweet_path, class: 'new_tweet'
