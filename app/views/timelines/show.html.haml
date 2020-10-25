@@ -12,5 +12,14 @@
                 - tweet.images.each do |image|
                   = image_tag image, class: 'tweet_image'
             %p= tweet.content
+            - if user_signed_in?
+              - if current_user.has_liked?(tweet)
+                .tweet_display
+                  = image_tag 'unlike.svg'
+                  %span= tweet.likes.count
+              - else
+                .tweet_display
+                  = image_tag 'like.svg'
+                  %span= tweet.likes.count
           %p.tweet_created= tweet.created_at
 = link_to '+',new_tweet_path, class: 'new_tweet'

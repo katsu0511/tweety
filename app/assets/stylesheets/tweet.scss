@@ -66,11 +66,9 @@
 			}
 		}
 
-		.tweet_created {
-			font-size: 14px;
-		}
-
 		.tweet_content {
+            position: relative;
+
 			p {
 				font-size: 18px;
 			}
@@ -79,7 +77,27 @@
 				.tweet_image {
 					padding: 10px;
 				}
-			}
+            }
+            
+            .tweet_like, .tweet_unlike {
+                position: absolute;
+				margin-top: 10px;
+				
+				img {
+					width: 16px;
+				}
+
+                span {
+                    position: relative;
+                    left: 3px;
+                    bottom: 4px;
+                    font-size: 14px;
+                }
+            }
+        }
+        
+        .tweet_created {
+			font-size: 14px;
 		}
 	}
 }
