@@ -21,8 +21,10 @@
           .tweet_unlike
             = link_to tweet_like_path(@tweet), data: { method: 'delete' } do
               = image_tag 'unlike.svg'
+            %span= @tweet.like_count
         - else
           .tweet_like
             = link_to tweet_like_path(@tweet), data: { method: 'post' } do
               = image_tag 'like.svg'
+            %span= @tweet.like_count
     %p.tweet_created= @tweet.created_at

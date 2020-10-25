@@ -52,6 +52,17 @@
             .tweet_display {
                 position: absolute;
                 margin-top: 10px;
+
+                img {
+					width: 14px;
+				}
+
+                span {
+                    position: relative;
+                    left: 2px;
+                    bottom: 5px;
+                    font-size: 14px;
+                }
             }
         }
     }

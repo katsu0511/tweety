@@ -21,4 +21,8 @@ class Tweet < ApplicationRecord
   has_many_attached :images
   has_many :likes, dependent: :destroy
   belongs_to :user
+
+  def like_count
+    likes.count
+  end
 end
