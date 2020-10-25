@@ -16,4 +16,8 @@
           - @tweet.images.each do |image|
             = image_tag image, class: 'tweet_image'
       %p= @tweet.content
+      - if user_signed_in?
+        .tweet_like
+          = link_to tweet_like_path(@tweet), data: {method: 'post'} do
+            = image_tag 'like.svg'
     %p.tweet_created= @tweet.created_at
