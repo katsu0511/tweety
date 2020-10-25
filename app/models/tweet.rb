@@ -19,5 +19,6 @@ class Tweet < ApplicationRecord
   validates :images, length: {maximum: 4}
 
   has_many_attached :images
+  has_many :likes, dependent: :destroy
   belongs_to :user
 end
