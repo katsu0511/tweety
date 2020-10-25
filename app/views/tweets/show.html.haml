@@ -17,7 +17,12 @@
             = image_tag image, class: 'tweet_image'
       %p= @tweet.content
       - if user_signed_in?
-        .tweet_like
-          = link_to tweet_like_path(@tweet), data: {method: 'post'} do
-            = image_tag 'like.svg'
+        - if current_user.has_liked?(@tweet)
+          .tweet_unlike
+            = link_to tweet_like_path(@tweet), data: { method: 'delete' } do
+              = image_tag 'unlike.svg'
+        - else
+          .tweet_like
+            = link_to tweet_like_path(@tweet), data: { method: 'post' } do
+              = image_tag 'like.svg'
     %p.tweet_created= @tweet.created_at

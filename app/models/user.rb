@@ -36,6 +36,10 @@ class User < ApplicationRecord
   has_many :tweets, dependent: :destroy
   has_many :likes, dependent: :destroy
 
+  def has_liked?(tweet)
+    likes.exists?(tweet_id: tweet.id)
+  end
+
   def prepare_profile
     profile || build_profile
   end
