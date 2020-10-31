@@ -1,0 +1,63 @@
+.inner.profile
+  %h1.account_name= @user.account_name
+  - if @user == current_user
+    = link_to '編集', edit_profile_path, class: 'profile_edit'
+  - else
+    - if current_user&.has_followed?(@user)
+      = link_to 'Unfollow', account_follow_path(@user), data: {method: 'delete'}, class: 'profile_edit follow_btn'
+    - else
+      = link_to 'Follow', account_follow_path(@user), data: {method: 'post'}, class: 'profile_edit follow_btn'
+  .profile_image
+    = image_tag @user.icon_image, class: 'profile_icon'
+  %h2.user_name= @user.profile&.name
+  %p.user_introduction= @user.profile&.introduction
+  - if @user.profile&.birthday
+    %p.user_birthday
+      %span 誕生日
+      = @user.profile&.birthday
+  .profile_infos
+    .profile_info.post
+      %span= @user.tweets.count
+      %h2 ツイート
+    = link_to account_followers_path(@user), class: 'profile_info follower' do
+      %span= @user.followers.count
+      %h2 フォロワー
+    = link_to account_followings_path(@user), class: 'profile_info following' do
+      %span= @user.followings.count
+      %h2 フォロー
+  .profile_tab
+    - if @user == current_user
+      = link_to profile_path, class: 'to_profile' do
+        %p ツイート
+      .favorites
+        %p お気に入り
+    - else
+      = link_to account_path(@user), class: 'to_profile' do
+        %p ツイート
+      .favorites
+        %p お気に入り
+  .tweets_index
+    - @user.likes.each do |like|
+      .tweet#tweet-show{data: {tweet_id: like.id}}
+        = link_to account_path(@user), class: 'tweet_top' do
+          = image_tag like.tweet.user.icon_image, class: 'tweet_top_icon'
+          %p.tweet_top_name= like.tweet.user.account_name
+        = link_to tweet_path(like.tweet), class: 'tweet_content' do
+          - if like.tweet.images.attached?
+            .tweet_images
+              - like.tweet.images.each do |image|
+                = image_tag image, class: 'tweet_image'
+          %p= like.tweet.content
+          - if user_signed_in?
+            - if current_user.has_liked?(like.tweet)
+              .tweet_display
+                = image_tag 'unlike.svg'
+                %span= like.tweet.likes.count
+            - else
+              .tweet_display
+                = image_tag 'like.svg'
+                %span= like.tweet.likes.count
+        %p.tweet_created= like.tweet.created_at
+
+= link_to '+',new_tweet_path, class: 'new_tweet'
+
