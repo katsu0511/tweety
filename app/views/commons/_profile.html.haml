@@ -28,7 +28,7 @@
   .profile_tab
     .profile_tweets
       %p ツイート
-    = link_to favorites_path, class: 'favorite_tweets' do
+    = link_to favorite_path(user), class: 'favorite_tweets' do
       %p お気に入り
   .tweets_index
     - user.tweets.each do |tweet|

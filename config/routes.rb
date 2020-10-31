@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resource :timeline, only: [:show]
   resource :profile, only: [:show, :edit, :update]
-  resources :favorites, only: [:index]
+  resources :favorites, only: [:show]
 
   resources :tweets, only: [:show, :new, :create, :edit, :update, :destroy] do
     resource :like, only: [:create, :destroy]
