@@ -1,0 +1,17 @@
+@import 'variables';
+
+.profile_tab {
+  .to_profile {
+    background-color: $white;
+    color: $base;
+    width: 50%;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .favorites {
+    background-color: $base;
+    color: $white;
+    width: 50%;
+    border-radius: 0 10px 10px 0;
+  }
+}
