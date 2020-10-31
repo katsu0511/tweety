@@ -25,6 +25,11 @@
     = link_to account_followings_path(user), class: 'profile_info following' do
       %span= user.followings.count
       %h2 フォロー
+  .profile_tab
+    .profile_tweets
+      %p ツイート
+    = link_to favorites_path, class: 'favorite_tweets' do
+      %p お気に入り
   .tweets_index
     - user.tweets.each do |tweet|
       .tweet#tweet-show{data: {tweet_id: tweet.id}}
