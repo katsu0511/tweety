@@ -37,27 +37,27 @@
       .favorites
         %p お気に入り
   .tweets_index
-    - @user.tweets.each do |tweet|
-      .tweet#tweet-show{data: {tweet_id: tweet.id}}
+    - @user.likes.each do |like|
+      .tweet#tweet-show{data: {tweet_id: like.id}}
         = link_to account_path(@user), class: 'tweet_top' do
-          = image_tag tweet.user.icon_image, class: 'tweet_top_icon'
-          %p.tweet_top_name= tweet.user.account_name
-        = link_to tweet_path(tweet), class: 'tweet_content' do
-          - if tweet.images.attached?
+          = image_tag like.tweet.user.icon_image, class: 'tweet_top_icon'
+          %p.tweet_top_name= like.tweet.user.account_name
+        = link_to tweet_path(like.tweet), class: 'tweet_content' do
+          - if like.tweet.images.attached?
             .tweet_images
-              - tweet.images.each do |image|
+              - like.tweet.images.each do |image|
                 = image_tag image, class: 'tweet_image'
-          %p= tweet.content
+          %p= like.tweet.content
           - if user_signed_in?
-            - if current_user.has_liked?(tweet)
+            - if current_user.has_liked?(like.tweet)
               .tweet_display
                 = image_tag 'unlike.svg'
-                %span= tweet.likes.count
+                %span= like.tweet.likes.count
             - else
               .tweet_display
                 = image_tag 'like.svg'
-                %span= tweet.likes.count
-        %p.tweet_created= tweet.created_at
+                %span= like.tweet.likes.count
+        %p.tweet_created= like.tweet.created_at
 
 = link_to '+',new_tweet_path, class: 'new_tweet'
 
